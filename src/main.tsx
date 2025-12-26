@@ -1,42 +1,54 @@
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
 import { RouterProvider, createRouter } from '@tanstack/react-router'
-
-// Import the generated route tree
 import { routeTree } from './routeTree.gen'
-
 import './styles.css'
 import reportWebVitals from './reportWebVitals.ts'
+import { useAuthStore } from './stores/authStore.ts'
 
-// Create a new router instance
 const router = createRouter({
   routeTree,
-  context: {},
+  context: {
+    auth: {
+      isAuthenticated: false,
+      user: null as null | { id: string; name?: string },
+    },
+  },
   defaultPreload: 'intent',
   scrollRestoration: true,
-  defaultStructuralSharing: true,
   defaultPreloadStaleTime: 0,
 })
 
-// Register the router instance for type safety
 declare module '@tanstack/react-router' {
   interface Register {
     router: typeof router
   }
 }
 
-// Render the app
+function App() {
+  const isAuthenticated = useAuthStore((s) => s.isAuthenticated)
+  const user = useAuthStore((s) => s.user)
+
+  return (
+    <RouterProvider
+      router={router}
+      context={{
+        auth: {
+          isAuthenticated,
+          user,
+        },
+      }}
+    />
+  )
+}
+
 const rootElement = document.getElementById('app')
 if (rootElement && !rootElement.innerHTML) {
-  const root = ReactDOM.createRoot(rootElement)
-  root.render(
+  ReactDOM.createRoot(rootElement).render(
     <StrictMode>
-      <RouterProvider router={router} />
+      <App />
     </StrictMode>,
   )
 }
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals()

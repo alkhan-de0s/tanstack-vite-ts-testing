@@ -34,7 +34,7 @@ function Login() {
     <div className="bg-white rounded-2xl shadow-2xl p-8 space-y-6">
       {/* Header */}
       <div className="text-center">
-        <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full mb-4">
+        <div className="inline-flex items-center justify-center w-16 h-16 bg-linear-to-br from-cyan-400 to-blue-500 rounded-full mb-4">
           <LogIn className="w-8 h-8 text-white" />
         </div>
         <h1 className="text-3xl font-bold text-gray-900 mb-2">Welcome Back</h1>
@@ -44,7 +44,7 @@ function Login() {
       {/* Error Message */}
       {error && (
         <div className="bg-red-50 border border-red-200 rounded-lg p-4 flex items-center gap-3">
-          <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0" />
+          <AlertCircle className="w-5 h-5 text-red-600 shrink-0" />
           <p className="text-sm text-red-800">{error}</p>
         </div>
       )}
@@ -100,7 +100,7 @@ function Login() {
         <button
           type="submit"
           disabled={isLoading}
-          className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white py-3 rounded-lg font-semibold hover:from-cyan-600 hover:to-blue-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl"
+          className="w-full bg-linear-to-r from-cyan-500 to-blue-600 text-white py-3 rounded-lg font-semibold hover:from-cyan-600 hover:to-blue-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl"
         >
           {isLoading ? 'Signing in...' : 'Sign In'}
         </button>

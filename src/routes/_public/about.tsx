@@ -1,9 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { Target, Zap, Shield, Users } from 'lucide-react'
 
-export const Route = createFileRoute('/_public/about')({
-  component: About,
-})
+export const Route = createFileRoute('/_public/about')({ component: About })
 
 function About() {
   const features = [
@@ -22,8 +20,7 @@ function About() {
     {
       icon: Shield,
       title: 'Secure',
-      description:
-        'Your data security and privacy are our top priorities.',
+      description: 'Your data security and privacy are our top priorities.',
     },
     {
       icon: Users,
@@ -37,7 +34,7 @@ function About() {
     <div className="max-w-6xl mx-auto space-y-16">
       {/* Hero Section */}
       <div className="text-center space-y-6">
-        <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
+        <h1 className="text-5xl md:text-6xl font-bold bg-linear-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
           About Us
         </h1>
         <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -56,7 +53,7 @@ function About() {
               key={feature.title}
               className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100"
             >
-              <div className="inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-lg mb-4">
+              <div className="inline-flex items-center justify-center w-14 h-14 bg-linear-to-br from-cyan-400 to-blue-500 rounded-lg mb-4">
                 <Icon className="w-7 h-7 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-3">
@@ -71,7 +68,7 @@ function About() {
       </div>
 
       {/* Story Section */}
-      <div className="bg-gradient-to-r from-cyan-500 to-blue-600 rounded-2xl p-12 text-white shadow-xl">
+      <div className="bg-linear-to-r from-cyan-500 to-blue-600 rounded-2xl p-12 text-white shadow-xl">
         <h2 className="text-3xl font-bold mb-6">Our Story</h2>
         <div className="space-y-4 text-cyan-50 text-lg leading-relaxed">
           <p>
@@ -108,7 +105,7 @@ function About() {
           ].map((tech) => (
             <div
               key={tech}
-              className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-lg p-4 text-center font-semibold text-gray-900 hover:from-cyan-100 hover:to-blue-100 transition-colors"
+              className="bg-linear-to-br from-cyan-50 to-blue-50 rounded-lg p-4 text-center font-semibold text-gray-900 hover:from-cyan-100 hover:to-blue-100 transition-colors"
             >
               {tech}
             </div>
